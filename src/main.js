@@ -3,21 +3,24 @@ import 'izitoast/dist/css/iziToast.min.css';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
-import { getImages } from './js/pixabay-api';
-import { displayImages } from './js/render-functions';
-import { displayErrorMessage } from './js/render-functions';
+import { getImages } from './js/pixabay-api.js';
+import { displayImages } from './js/render-functions.js';
+import { displayErrorMessage } from './js/render-functions.js';
 
 const form = document.querySelector('#search-form');
 const input = document.querySelector('#search-input');
 const gallery = document.querySelector('.gallery');
+const loader = document.getElementById('loader');
 
 form.addEventListener('submit', function (event) {
   event.preventDefault();
 
   const searchText = input.value.trim();
+  loader.classList.remove('is-hidden');
 
   if (searchText === '') {
     displayErrorMessage('Please fill imput');
+
     return;
   }
 
@@ -35,5 +38,8 @@ form.addEventListener('submit', function (event) {
     .catch(error => {
       console.error('Error during search:', error);
       displayErrorMessage('Error');
+    })
+    .finally(() => {
+      loader.classList.add('is-hidden');
     });
 });
