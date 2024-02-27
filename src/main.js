@@ -16,13 +16,12 @@ form.addEventListener('submit', function (event) {
   event.preventDefault();
 
   const searchText = input.value.trim();
-  loader.classList.remove('is-hidden');
 
   if (searchText === '') {
     displayErrorMessage('Please fill imput');
-
     return;
   }
+  loader.classList.remove('is-hidden');
 
   getImages(searchText)
     .then(data => {
