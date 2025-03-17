@@ -1,5 +1,4 @@
-import iziToast from 'izitoast';
-import 'izitoast/dist/css/iziToast.min.css';
+import iziToast from 'izitoast/dist/js/iziToast.min.js';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
@@ -7,10 +6,10 @@ import { getImages } from './js/pixabay-api.js';
 import { displayImages } from './js/render-functions.js';
 import { displayErrorMessage } from './js/render-functions.js';
 
-const form = document.querySelector('#search-form');
-const input = document.querySelector('#search-input');
+const form = document.querySelector('.form');
+const input = document.querySelector('.search-input');
 const gallery = document.querySelector('.gallery');
-const loader = document.getElementById('loader');
+const loader = document.querySelector('.loader');
 
 form.addEventListener('submit', function (event) {
   event.preventDefault();

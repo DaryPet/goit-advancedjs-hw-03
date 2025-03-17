@@ -23,9 +23,15 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
-
+body {
+  margin: 60px 0;
+  padding: 0;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
 .gallery {
   display: flex;
+  margin: 0 auto;
   flex-wrap: wrap;
   gap: 24px;
   column-gap: 24px;
@@ -92,16 +98,17 @@
 }
 
 .is-hidden {
-  position: absolute !important;
-  clip: rect(1px, 1px, 1px, 1px);
-  padding: 0 !important;
-  border: 0 !important;
-  height: 1px !important;
-  width: 1px !important;
-  overflow: hidden !important;
+  display: none;
 }
-
 .loader {
+  display: none; /* По умолчанию скрыт */
+  color: #007bff;
+  text-align: center;
+  font-size: 24px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+/* .loader {
+  display: none;
   color: #007bff;
   display: inline-block;
   position: relative;
@@ -112,6 +119,9 @@
   font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
   width: 100%;
+} */
+.loader.active {
+  display: block;
 }
 .loader::after {
   content: '';
